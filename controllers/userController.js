@@ -6,10 +6,10 @@ const userController = {
         res.render('login', {title:'login'})
     },
     perfil: function(req, res){
-        res.render('profile', {title:'profile'})
+        res.render('perfil', {title:'perfil'})
     },
     editarPerfil: function(req, res){
-        res.render('editProfile', {title:'Edit Profile'})
+        res.render('editarPerfil', {title:'Editar Perfil'})
     },
 }
 
