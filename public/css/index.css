@@ -118,6 +118,9 @@ main {
     padding: 1px;
     border: 2px solid chocolate;
 }
+.formulario-register{
+    display: block;
+  }
 .post-reacciones {
     display: flex;
     flex-direction: row;
