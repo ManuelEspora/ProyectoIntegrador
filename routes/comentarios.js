@@ -2,9 +2,6 @@ var express = require('express');
 const comentariosController = require("../controllers/comentariosController");
 var router = express.Router();
 
-/* GET home page. */
- router.get('/',function(req, res){
-  res.send('')
-  });
+router.get('/comentarios', comentariosController.comentarios);
 
 module.exports = router;

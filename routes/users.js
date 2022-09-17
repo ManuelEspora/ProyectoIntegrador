@@ -9,8 +9,12 @@ router.get("")
 
 router.get('/login',userController.login);
 
+router.get('/registracion',userController.registracion)
+
+router.get('/miperfil',userController.miPerfil)
+
 router.get('/editarPerfil',userController.editarPerfil)
 
-router.get('/perfil',userController.perfil)
+router.get('/detalleUsuario',userController.detalleUsuario)
 
 module.exports = router;

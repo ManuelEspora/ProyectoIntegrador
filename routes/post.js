@@ -1,13 +1,12 @@
-const productController = require('../controllers/productController');
+var express = require('express');
+const postController = require('../controllers/postController');
 var router = express.Router();
 
-router.get("/", function(req, res){
-    res.send('')
-});
+router.get('/', postController.post);
 
-router.get('/detalle', postController.detalle);
+router.get('/detallePost', postController.detallePost)
 
-router.get('/Agregar', postController.agregar);
+router.get('/Agregarpost', postController.agregar)
 
 router.get('/resultadoBusqueda', postController.resultadoBusqueda)
 

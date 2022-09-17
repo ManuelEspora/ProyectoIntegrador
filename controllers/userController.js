@@ -5,11 +5,17 @@ const userController = {
     login: function(req, res){
         res.render('login', {title:'login'})
     },
-    perfil: function(req, res){
-        res.render('perfil', {title:'perfil'})
+    registracion: function(req, res){
+        res.render('registracion', {title:"Register"})  
+    },
+    miPerfil: function(req, res){
+        res.render('miperfil', {title:'perfil'})
     },
     editarPerfil: function(req, res){
         res.render('editarPerfil', {title:'Editar Perfil'})
+    },
+    detalleUsuario: function(req, res){
+        res.render('detalleUsuario', {title:'Detalles Usuario'})
     },
 }
 
