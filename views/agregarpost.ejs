@@ -10,7 +10,21 @@
     <main>
         <section class="center main-content">
         <h1>Nuevo Post</h1>
-        <p>Crear el formulario para cargar un nuevo posteo.</p>
+        <form action="/" method="GET">
+            <p><label for="imagen">Imagen:</label></p>
+            <p><input type="file" id="Imagen" name="Imagen"></p>
+
+            <p><label for="te">Nombre del Producto:</label></p>
+            <p><input type="text" id="Nombre del Producto" name="Nombre del Producto"></p>
+
+            <p><label for="text">Descripción:</label></p>
+            <p><input type="text" id="Descripción" name="Descripción"></p>
+
+            <p><label for="fecha">Fecha de Carga</label></p>
+            <p><input type="date" id="Fecha de Carga" name="Fecha de Carga"></p>
+
+            <p><input type="submit" value="Enviar"></p>
+        </form>
         </section>
     </main>
 
