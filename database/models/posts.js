@@ -36,5 +36,17 @@ module.exports = function (sequelize, dataTypes) {
     
     const Posts = sequelize.define(alias, cols, config);
 
+    Posts.associate = function(models){
+        Posts.belongsTo(models.Users,{
+            as:'users',
+            foreingKey:'users_id'
+        });
+        
+        Products.hasMany(models.Comments, {
+            as:'comments',
+            foreingKey: 'posts_id'
+        })
+    }
+
    return Posts;
 }

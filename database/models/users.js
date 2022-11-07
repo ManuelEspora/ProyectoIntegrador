@@ -41,6 +41,20 @@ module.exports = function (sequelize, dataTypes) {
 
    const Users = sequelize.define(alias, cols, config);
    
-   return User;
+   Users.associate = (models)=>{
+
+    Users.hasMany(models.Posts,{
+        as:'posts',
+        foreingKey:'posts_id'
+    });
+ 
+    User.hasMany(models.Comment,{
+        as:'comments',
+        foreingKey:'user_id'
+    });
+    //cambiar
+ }
+    
+   return Users;
   
 }
