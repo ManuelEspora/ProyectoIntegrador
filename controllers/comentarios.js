@@ -1,3 +1,6 @@
+const db = require('../database/models');
+const comments = db.comments;
+
 const comentariosController = {
     comentarios: function(req,res){
         res.render('index', { title: 'comentarios'})

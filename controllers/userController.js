@@ -1,3 +1,5 @@
+const db = require('../database/models');
+
 const userController = {
     user: function(req, res){
         res.render('index', { title:'Usuarios' })
@@ -5,7 +7,6 @@ const userController = {
     login: function(req, res){
         res.render('login', {title:'login'})
     },
-
 
     registracion: function(req, res){
         res.render('registracion', {title:"Register"})  

@@ -1,3 +1,5 @@
+const db = require('../database/models');
+
 const postController = {
     post: function(req, res){
         res.render('index', { title:'Post' })

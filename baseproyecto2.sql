@@ -1,5 +1,5 @@
-create schema basearchitecture;
-use basearchitecture;
+create schema baseproyecto2;
+use baseproyecto2;
 
 CREATE TABLE users (
   id int unsigned NOT NULL AUTO_INCREMENT,
