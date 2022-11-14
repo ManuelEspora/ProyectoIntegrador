@@ -1,18 +1,19 @@
 const db = require('../database/models');
+const posts = db.Posts;
+const op = db.Sequelize.Op;
 
 const postController = {
-    post: function(req, res){
+    show: function(req, res){
         res.render('index', { title:'Post' })
     },
     detallePost: function(req, res){
         res.render('detallePost', { title: "un post"})
     },
-    agregar: function(req, res){
-        res.render('agregarpost', { title:'Agregar Post' })
+    create: function(req, res){
+        return res.render('agregarpost', { title:'Agregar Post' })
     },
-    resultadoBusqueda: function(req,res){
-        res.render('resultadoBusqueda', { title:'resultado Busqueda'})
+    resultadoBusqueda: function(req, res){
+    res.render('resultadobusqueda', { title:'resultadobusqueda' })
     }
 }
-
 module.exports = postController;

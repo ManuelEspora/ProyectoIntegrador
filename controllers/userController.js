@@ -7,6 +7,9 @@ const userController = {
     login: function(req, res){
         res.render('login', {title:'login'})
     },
+    processlogin: function(req, res){
+        res.redirect('/')
+    },
 
     registracion: function(req, res){
         res.render('registracion', {title:"Register"})  

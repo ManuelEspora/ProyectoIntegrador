@@ -1,5 +1,5 @@
 module.exports = function (sequelize, dataTypes) {
-    let alias = "posts";
+    let alias = "Posts";
     let cols = {
 
         id:  {
@@ -36,17 +36,17 @@ module.exports = function (sequelize, dataTypes) {
     
     const Posts = sequelize.define(alias, cols, config);
 
-    Posts.associate = function(models){
+     Posts.associate = function(models){
         Posts.belongsTo(models.Users,{
-            as:'users',
+            as:'postUsers',
             foreingKey:'users_id'
         });
         
-        Products.hasMany(models.Comments, {
-            as:'comments',
+        Posts.hasMany(models.Comments, {
+            as:'postComments',
             foreingKey: 'posts_id'
-        })
-    }
+        }) 
+    } 
 
    return Posts;
 }

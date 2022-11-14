@@ -1,5 +1,5 @@
 module.exports = function (sequelize, dataTypes) {
-    let alias = "users";
+    let alias = "Users";
     let cols = {
     
         id:  {
@@ -44,16 +44,15 @@ module.exports = function (sequelize, dataTypes) {
    Users.associate = (models)=>{
 
     Users.hasMany(models.Posts,{
-        as:'posts',
-        foreingKey:'posts_id'
+        as:'userPosts',
+        foreingKey:'users_id'
     });
  
-    User.hasMany(models.Comment,{
-        as:'comments',
-        foreingKey:'user_id'
-    });
-    //cambiar
- }
+    Users.hasMany(models.Comments,{
+        as:'userComments',
+        foreingKey:'users_id'
+    });  
+ } 
     
    return Users;
   
