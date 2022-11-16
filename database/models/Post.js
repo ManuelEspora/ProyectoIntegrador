@@ -10,7 +10,7 @@ module.exports = function (sequelize, dataTypes) {
         nombre: {
             type: dataTypes.STRING
         },
-        created_at : {
+        createdAt : {
             type: dataTypes.DATE,
             allowNull:true,
         },
@@ -21,7 +21,7 @@ module.exports = function (sequelize, dataTypes) {
             primaryKey: true,
             type: dataTypes.INTEGER
         },
-        updated_at: {
+        updatedAt: {
             type: dataTypes.DATE,
             allowNull: true,
         },
@@ -29,6 +29,7 @@ module.exports = function (sequelize, dataTypes) {
     }
     
     let config = {
+        tableName : "posts",
         timestamps:true,
         createdAt: false,
         updatedAt: false

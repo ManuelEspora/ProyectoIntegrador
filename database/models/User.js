@@ -34,6 +34,7 @@ module.exports = function (sequelize, dataTypes) {
     }
 
    let config = {
+    tablaName : "users",
     timestamps:true,
     createdAt: false,
     updatedAt: false

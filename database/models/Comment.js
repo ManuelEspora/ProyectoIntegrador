@@ -31,6 +31,7 @@ module.exports = function (sequelize, dataTypes) {
     }
 
     let config = {
+        tablaName : "comments",
         timestamps:true,
         underscored: true,
        };
