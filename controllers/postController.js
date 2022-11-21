@@ -12,12 +12,12 @@ const postController = {
 
         posts.findByPk(id, {
             include: [
-                {association: 'postsUsers'},
-                {association: 'postComments'}
+                {association: 'users'},
+                {association: 'comments'}
             ]
         })
         .then((data)=>{
-            res.render('detalleposts', {posts: data})
+            res.render('detalleposts', {post: data})
         })
         .catch((err)=>{
             console.log(err)
@@ -26,9 +26,24 @@ const postController = {
     detallePost: function(req, res){
         res.render('detallePost', { title: "un post"})
     },
-    /*create: function(req, res){
+    create: function(req, res){
         return res.render('agregarpost', { title:'Agregar Post' })
+    },
+
+    /*list: async function(req,res){
+        const search = req.query.search
+        let productos = []
+        if(search){
+            const consulta = {name: {[Op.like]: '%'+search+'%'}}
+            productos = await db.products.findAll({
+                where: consulta
+            })
+        } else{
+            productos = await db.products.findAll()
+        }
+        res.render('productList', {productos})
     },*/
+
     store: (req, res) => {
           let postsAGuardar = req.body;
           let newPost = {

@@ -6,7 +6,7 @@ const indexController = {
             auth = req.session.auth
         }
         
-        db.Posts.findAll()
+        db.Post.findAll()
             .then(users => {
                 res.render('index', {title:'Express', auth, users});
             }) 

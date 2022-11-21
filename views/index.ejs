@@ -9,6 +9,8 @@
 <body>
     
     <main>
+
+		<% post.forEach(function(post){%>
         <section class="center main-content">
             <article class="post">
                 <div class="info-usuario ">
@@ -18,8 +20,8 @@
                     </h4>
                 </div>
                 <div class="post-body">
-                    <a href="/post/detallePost">
-                        <img src="/images/Foto1.jpeg" alt="">
+                    <a href="/detallePost/:id">
+                        <img src="<%= post.url_img %>" alt="">
                     </a>
                 </div>
                 <ul class="post-reacciones">
@@ -150,7 +152,8 @@
                     </ul>
                 </div>
             </article>
-        </section>    
+        </section>   
+        <% }) %>
     </main>
 
 <!-- footer -->
