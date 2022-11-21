@@ -3,26 +3,6 @@ const posts = db.Posts;
 const op = db.Sequelize.Op;
 
 const postController = {
-    index : function(req, res) {
-
-        let criterios = {
-           where : [{awards : 1}, {length : 2}],
-            order : [["img_url"]],
-            limit : 10
-        }
-
-        posts.findAll(criterios)
-        .then((result) => {
-            /* #nota: Crear Contador */
-
-
-             /* #nota: Enviar dato a la vista con la clave contador*/
-
-
-            return res.render("movies", {peliculas : result})
-        });
-    
-},
     show: function(req, res){ 
         let id = req.params.id
         let auth = null 
@@ -46,9 +26,9 @@ const postController = {
     detallePost: function(req, res){
         res.render('detallePost', { title: "un post"})
     },
-    create: function(req, res){
+    /*create: function(req, res){
         return res.render('agregarpost', { title:'Agregar Post' })
-    },
+    },*/
     store: (req, res) => {
           let postsAGuardar = req.body;
           let newPost = {

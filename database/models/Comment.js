@@ -31,21 +31,21 @@ module.exports = function (sequelize, dataTypes) {
     }
 
     let config = {
-        tablaName : "comments",
+        tableName : "comments",
         timestamps:true,
         underscored: true,
        };
 
 
-    const Comments = sequelize.define(alias, cols, config);
+    let Comments = sequelize.define(alias, cols, config);
 
      Comments.associate = (models)=>{
         Comments.belongsTo(models.Users,{
-            as:'commentsUser',
+            as:'users',
             foreingKey:'users_id'
         });
         Comments.belongsTo(models.Posts,{
-            as:'commentsPosts',
+            as:'posts',
             foreingKey:'posts_id'
         })
     } 

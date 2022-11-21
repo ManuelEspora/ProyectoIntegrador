@@ -10,7 +10,7 @@ module.exports = function (sequelize, dataTypes) {
         nombre: {
             type: dataTypes.STRING
         },
-        createdAt : {
+        created_at : {
             type: dataTypes.DATE,
             allowNull:true,
         },
@@ -21,7 +21,7 @@ module.exports = function (sequelize, dataTypes) {
             primaryKey: true,
             type: dataTypes.INTEGER
         },
-        updatedAt: {
+        updated_at: {
             type: dataTypes.DATE,
             allowNull: true,
         },
@@ -31,23 +31,22 @@ module.exports = function (sequelize, dataTypes) {
     let config = {
         tableName : "posts",
         timestamps:true,
-        createdAt: false,
-        updatedAt: false
+        underscored: true
        };
     
-    const Posts = sequelize.define(alias, cols, config);
+    let Posts = sequelize.define(alias, cols, config);
 
-     Posts.associate = function(models){
+    Posts.associate = function(models){
         Posts.belongsTo(models.Users,{
-            as:'postUsers',
+            as:'users',
             foreingKey:'users_id'
         });
         
         Posts.hasMany(models.Comments, {
-            as:'postComments',
+            as:'comments',
             foreingKey: 'posts_id'
-        }) 
-    } 
+        })
+    }
 
    return Posts;
 }

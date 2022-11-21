@@ -34,23 +34,22 @@ module.exports = function (sequelize, dataTypes) {
     }
 
    let config = {
-    tablaName : "users",
+    tableName : "users",
     timestamps:true,
-    createdAt: false,
-    updatedAt: false
+    underscored: true,
    };
 
-   const Users = sequelize.define(alias, cols, config);
+   let Users = sequelize.define(alias, cols, config);
    
    Users.associate = (models)=>{
 
     Users.hasMany(models.Posts,{
-        as:'userPosts',
+        as:'posts',
         foreingKey:'users_id'
     });
  
     Users.hasMany(models.Comments,{
-        as:'userComments',
+        as:'comments',
         foreingKey:'users_id'
     });  
  } 
