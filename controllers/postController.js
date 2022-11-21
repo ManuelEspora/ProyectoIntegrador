@@ -1,5 +1,5 @@
 const db = require('../database/models');
-const posts = db.Posts;
+const post = db.Post;
 const op = db.Sequelize.Op;
 
 const postController = {
@@ -10,14 +10,20 @@ const postController = {
             auth = req.session.auth
         } 
 
-        posts.findByPk(id, {
-            include: [
-                {association: 'users'},
-                {association: 'comments'}
+        let relaciones = {
+            include : [
+                {
+                    all : true,
+                    nested: true
+                }
+                //{association:'users'},
+                //{association:'comments'}
+
             ]
-        })
-        .then((data)=>{
-            res.render('detalleposts', {post: data})
+        };
+        post.findByPk(id, relaciones)
+        .then((result)=>{
+            res.render('detallePost', {post: result})
         })
         .catch((err)=>{
             console.log(err)

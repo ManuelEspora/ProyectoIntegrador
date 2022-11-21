@@ -1,17 +1,17 @@
 const db = require('./../database/models/index')
+const post = db.Post;
 const indexController = {
     index: function(req, res){
         let auth = null 
         if(req.session.auth){
             auth = req.session.auth
         }
-        
-        db.Post.findAll()
-            .then(users => {
-                res.render('index', {title:'Express', auth, users});
-            }) 
-            .catch(error => {res.send("Errror al conectarse a la base de datos" + error)})
 
+        post.findAll()
+            .then((result) => {
+                return res.render('index', {post : result});
+            })
+            .catch(error => {res.send("Error al conectarse a la base de datos" + error)})
         }
 }
 module.exports = indexController;
