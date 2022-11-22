@@ -10,16 +10,17 @@
     
     <main>
         <section class="center main-content">
+                <% for( let i = 0; i < post.length; i+=1 ) { %>
                 <article class="post">
-                <div class="info-usuario ">
+                    <div class="info-usuario ">
                     <img src="" alt="">
                     <h4>
                         <a href="/users/detalleUsuario">Usuario</a>
                     </h4>
                 </div>
                 <div class="post-body">
-                    <a href="/detallePost/:id" <%= post.id %>>
-                        <img src="<%=post.url_img %>" alt="">
+                    <a href="/post/detallePost">
+                        <img src="<%= post.img_url %> " alt="">
                     </a>
                 </div>
                 <ul class="post-reacciones">
@@ -45,112 +46,9 @@
                     </ul>
                 </div>
             </article>
-            <article class="post">
-                <div class="info-usuario ">
-                    <img src="https://via.placeholder.com/40" alt="">
-                    <h4>
-                        <a href="/users/detalleUsuario">Usuario</a>
-                    </h4>
-                </div>
-                <div class="post-body">
-                    <a href="/post/detallePost">
-                        <img src="/images/foto2.jpeg" alt="">
-                    </a>
-                </div>
-                <ul class="post-reacciones">
-                    <li>
-                        <i class="fa-regular fa-heart"></i>
-                    </li>
-                    <li>
-                        <i class="fa-regular fa-comment"></i>
-                    </li>
-                </ul>
-                <div class="post-comentarios">
-                    <h4>Comentarios</h4>
-                    <ul>
-                        <li>
-                            <a href="/users/detalleUsuario">Usuario</a>
-                            <span>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Commodi</span>
-                        </li>
-                        <li>
-                            <a href="/users/detalleUsuario">Usuario</a>
-                            <span>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Commodi</span>
-                        </li>
-                        <a href="/post/detallePost">Ver más...</a>
-                    </ul>
-                </div>
-            </article>
-            <article class="post">
-                <div class="info-usuario ">
-                    <img src="https://via.placeholder.com/40" alt="">
-                    <h4>
-                        <a href="/users/detalleUsuario">Usuario</a>
-                    </h4>
-                </div>
-                <div class="post-body">
-                    <a href="/post/detallePost">
-                        <img src="/images/foto3.jpeg" alt="">
-                    </a>
-                </div>
-                <ul class="post-reacciones">
-                    <li>
-                        <i class="fa-regular fa-heart"></i>
-                    </li>
-                    <li>
-                        <i class="fa-regular fa-comment"></i>
-                    </li>
-                </ul>
-                <div class="post-comentarios">
-                    <h4>Comentarios</h4>
-                    <ul>
-                        <li>
-                            <a href="/users/detalleUsuario">Usuario</a>
-                            <span>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Commodi</span>
-                        </li>
-                        <li>
-                            <a href="/users/detalleUsuario">Usuario</a>
-                            <span>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Commodi</span>
-                        </li>
-                        <a href="/post/detallePost">Ver más...</a>
-                    </ul>
-                </div>
-            </article>
-            <article class="post">
-                <div class="info-usuario ">
-                    <img src="https://via.placeholder.com/40" alt="">
-                    <h4>
-                        <a href="/users/detalleUsuario">Usuario</a>
-                    </h4>
-                </div>
-                <div class="post-body">
-                    <a href="/post/detallePost">
-                        <img src="images/foto4.jpeg" alt="">
-                    </a>
-                </div>
-                <ul class="post-reacciones">
-                    <li>
-                        <i class="fa-regular fa-heart"></i>
-                    </li>
-                    <li>
-                        <i class="fa-regular fa-comment"></i>
-                    </li>
-                </ul>
-                <div class="post-comentarios">
-                    <h4>Comentarios</h4>
-                    <ul>
-                        <li>
-                            <a href="/users/detalleUsuario">Usuario</a>
-                            <span>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Commodi</span>
-                        </li>
-                        <li>
-                            <a href="/users/detalleUsuario">Usuario</a>
-                            <span>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Commodi</span>
-                        </li>
-                        <a href="/post/detallePost">Ver más...</a>
-                    </ul>
-                </div>
-            </article>*/
+            <% } %>
         </section>   
+       
     </main>
 
 <!-- footer -->

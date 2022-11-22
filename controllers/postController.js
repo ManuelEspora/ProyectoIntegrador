@@ -12,21 +12,20 @@ const postController = {
 
         let relaciones = {
             include : [
-                /*{
+                {
                     all : true,
                     nested: true
-                }*/
-                {association:'users'},
-                {association:'comments'}
-
+                }
+                //{association:'users'},
+                //{association:'comments'}
             ]
         };
         post.findByPk(id, relaciones)
         .then((result)=>{
-            res.render('detallePost', {post: result})
+            res.render("detallePost", {post: result})
         })
         .catch((err)=>{
-            console.log(err)
+            return res.redirect("/")
         })
     },
     detallePost: function(req, res){

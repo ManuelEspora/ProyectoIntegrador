@@ -1,5 +1,8 @@
 const db = require('../database/models');
-
+/*const User = db.User;
+const bycript = require('bcryptjs');
+const op = db.Sequelize.Op;
+*/
 const userController = {
     user: function(req, res){
         res.render('index', { title:'Usuarios' })
