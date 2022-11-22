@@ -12,12 +12,12 @@ const postController = {
 
         let relaciones = {
             include : [
-                {
+                /*{
                     all : true,
                     nested: true
-                }
-                //{association:'users'},
-                //{association:'comments'}
+                }*/
+                {association:'users'},
+                {association:'comments'}
 
             ]
         };
