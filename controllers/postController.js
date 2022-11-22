@@ -35,19 +35,19 @@ const postController = {
         return res.render('agregarpost', { title:'Agregar Post' })
     },
 
-    /*list: async function(req,res){
+    list: async function(req,res){
         const search = req.query.search
         let productos = []
         if(search){
             const consulta = {name: {[Op.like]: '%'+search+'%'}}
-            productos = await db.products.findAll({
+            productos = await db.post.findAll({
                 where: consulta
             })
         } else{
-            productos = await db.products.findAll()
+            productos = await db.post.findAll()
         }
-        res.render('productList', {productos})
-    },*/
+        res.render('/', {post})
+    },
 
     store: (req, res) => {
           let postsAGuardar = req.body;
@@ -59,14 +59,14 @@ const postController = {
             createdAt: new Date(),
             updatedAt: new Date()
         }
-        posts.create(newPost)
+        post.create(newPost)
         .then( (postCreado) => {
             return res.redirect('/');
         })
         .catch(error => {
             console.log("Error al crear el producto");
         })
-          return res.redirect("/detallePost");
+          return res.redirect("detallePost");
     },
     resultadoBusqueda: function(req, res){
     res.render('resultadobusqueda', { title:'resultadobusqueda' })

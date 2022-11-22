@@ -86,6 +86,8 @@ VALUES ('5', DEFAULT, 'Img5', 'Casa en el bosque','2020-10-27 19:18:42','2020-10
 INSERT INTO posts (id, users_id, nombre, descripcion, created_at, updated_at, img_url)
 VALUES ('6', DEFAULT, 'Img6', 'Decoración Indoor','2020-10-27 19:18:42','2020-10-27 19:18:42','https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQHs4ZM8cPmigRuWRVqWN2ZxiSd7AHzCNV_bg&usqp=CAU');
 
+INSERT INTO posts (id, users_id, nombre, descripcion, created_at, updated_at, img_url)
+VALUES ('7', DEFAULT, 'Img7', 'Iphone XR','2020-10-27 19:18:42','2020-10-27 19:18:42','https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/refurb-iphone8plus-spacegray?wid=1400&hei=1400&fmt=jpeg&qlt=95&op_usm=0.5,0.5&.v=1564083513793');
 
 CREATE TABLE comments (
   id int unsigned NOT NULL AUTO_INCREMENT,
