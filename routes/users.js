@@ -17,18 +17,14 @@ let storage = multer.diskStorage({
 let upload = multer({storage: storage});
 
 /* GET users listing. */
-router.get('/register', userController.create);
+router.get('/', userController.user);
+
+router.get("/registracion", userController.register);
+router.post("/registracion", upload.single('fotodeperfil'), userController.store);
 
 router.get('/login',userController.login);
-router.get('/login', userController.processlogin);
 
-/*router.get('/registracion',userController.registracion)
+router.get('/miPerfil',userController.profile)
 
-router.get('/miperfil',userController.miPerfil)
-
-router.get('/editarPerfil',userController.editarPerfil)
-
-router.get('/detalleUsuario',userController.detalleUsuario)
-*/
-router.get('/logout',userController.logout);
+router.post('/logout',userController.logout);
 module.exports = router;

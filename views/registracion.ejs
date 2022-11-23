@@ -12,8 +12,10 @@
         <h1>Registrate</h1>
     </div>
         <div class="formulario-register">
-            <form action="/user/registracion" method="POST">
-                
+            <form action="/users/registracion" method="POST"> 
+                <% if (locals.errors) { %>
+                    <p class="error"  style="color:red"><%= locals.errors.message %> </p>
+                  <% } %>
                 <label for="email">Email</label></p>
                 <div>
                     <input type="text" id="Email" name="email">
@@ -47,7 +49,11 @@
                     <div>
                         <input type="file" id="Foto-de-Perfil" name="fotodeperfil">
                 </div>
-                   <input type="submit" value="Enviar">
+                <p class="block">
+                    <button type="submit">
+                        REGISTRARME
+                    </button>
+                </p>
             </form>
         </div>
         </section>

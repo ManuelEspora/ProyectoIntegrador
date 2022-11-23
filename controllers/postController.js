@@ -12,12 +12,9 @@ const postController = {
 
         let relaciones = {
             include : [
-                {
-                    all : true,
-                    nested: true
-                }
-                //{association:'users'},
-                //{association:'comments'}
+            
+                {association:'users'},
+                {association:'comments'}
             ]
         };
         post.findByPk(id, relaciones)
@@ -27,9 +24,6 @@ const postController = {
         .catch((err)=>{
             return res.redirect("/")
         })
-    },
-    detallePost: function(req, res){
-        res.render('detallePost', { title: "un post"})
     },
     create: function(req, res){
         return res.render('agregarpost', { title:'Agregar Post' })

@@ -104,7 +104,10 @@ main {
     margin-bottom: 20px;
 }
 .post-body img {
-    width: 200%;
+    width: 100%;
+}
+.post-descripcion {
+    color: #ddd;
 }
 .info-usuario,
 .post-reacciones,
