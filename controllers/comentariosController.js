@@ -1,12 +1,8 @@
 const db = require('../database/models');
-const comments = db.comments;
+const comments = db.Comment;
 
 const comentariosController = {
-    comments: function(req, res){
-        let auth = null 
-        if(req.session.auth){
-            auth = req.session.auth
-        }
+    comments: function(req, res) {
         
         comments.findAll()
             .then((result) => {

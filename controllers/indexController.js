@@ -1,5 +1,6 @@
 const db = require('./../database/models/index')
 const post = db.Post;
+const comments = db.Comment;
 const indexController = {
     index: function(req, res){
         let auth = null 
@@ -12,6 +13,7 @@ const indexController = {
                 return res.render('index', {post : result});
             })
             .catch(error => {res.send("Error al conectarse a la base de datos" + error)})
-        }
+
+        },
 }
 module.exports = indexController;

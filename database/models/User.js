@@ -45,7 +45,6 @@ module.exports = function (sequelize, dataTypes) {
    let User = sequelize.define(alias, cols, config);
    
    User.associate = (models)=>{
-
     User.hasMany(models.Post,{
         as:'posts',
         foreingKey:'users_id'

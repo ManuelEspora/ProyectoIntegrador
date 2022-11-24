@@ -13,10 +13,7 @@
     </div>
         <div class="formulario-register">
             <form action="/users/registracion" method="POST"> 
-                <% if (locals.errors) { %>
-                    <p class="error"  style="color:red"><%= locals.errors.message %> </p>
-                  <% } %>
-                <label for="email">Email</label></p>
+                    <label for="email">Email</label></p>
                 <div>
                     <input type="text" id="Email" name="email">
                 </div>
@@ -24,10 +21,6 @@
                     <label for="text">Nombre</label></p>
                 <div>
                     <input type="text" id="name" name="name">
-                </div>
-                <div>
-                    <label for="text">Apellido</label></p>
-                    <input type="text" id="surname" name="surname">
                 </div>
                 <div>
                     <label for="contraseña">Contraseña</label></p>

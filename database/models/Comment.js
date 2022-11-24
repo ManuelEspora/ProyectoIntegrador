@@ -6,7 +6,7 @@ module.exports = function (sequelize, dataTypes) {
             primaryKey: true,
             type: dataTypes.INTEGER
         },
-        text_: {
+        text: {
             type: dataTypes.STRING
         },
         created_at : {
