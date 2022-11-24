@@ -1,5 +1,5 @@
 const db = require('../database/models');
-const User = db.User;
+const User = db.Users;
 const bycript = require('bcryptjs');
 const op = db.Sequelize.Op;
 
@@ -39,23 +39,13 @@ const userController = {
        
     },
     profile: function(req, res){
-        res.render('miPerfil', {title:'miPerfil'})
+        res.render('detalleUsuario', {title:'detalleUsuario'})
         const id = req.params.id
 
         let relaciones = {
             include : [
-                {
-                    association: 'comments',
-                    include: {
-                        association: 'users'
-                    }
-                },
-                {
-                    association: 'posts',
-                    include: {
-                        association: "comments"
-                    }
-                },
+                {all: true,
+                nested: true}
             ]
         }
         User.findByPk(id, relaciones)
@@ -63,7 +53,7 @@ const userController = {
             if (users == null) {
                 return res.redirect('/')
             } else {
-                return res.render('miPerfil', { users: data })
+                return res.render('detalleusuario', { users: data })
             }
         })
         .catch((err)=>{

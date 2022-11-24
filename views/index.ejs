@@ -11,14 +11,16 @@
         <section class="center main-content">
                 <% for( let i = 0; i < post.length; i+=1 ) { %>
                 <article class="post">
+
                     <div class="info-usuario ">
                     <img src="" alt="">
                     <h4>
-                        <a href="/users/miPerfil"><%= post[i].descripcion %> </a>
+                        <a href="/users/miPerfil"> </a>
                     </h4>
+                    
                 </div>
                 <div class="post-body">
-                    <a href="/post/detallePost">
+                    <a href="/post/detallePost <%= post[i].id%>">
                         <img src="<%= post[i].img_url %>" alt="">
                     </a>
                 </div>
@@ -35,11 +37,11 @@
                 </div>
                 <div class="post-comentarios">
                     
-                    <h4>Comentarios</h4>
+                    <h4>Comentarios:  <% for( let i = 0; i < comments.length; i+=1 ) { %></h4>
                     <ul>
                         <li>
                             <a href="/users/miPerfil"> Usuario </a>
-                            <span> </span>
+                            <span> post.</span>
                         </li>
                         <li>
                             <a href="/users/miPerfil">Usuario</a>
@@ -48,6 +50,7 @@
                         <a href="/post/detallePost">Ver más...</a>
                     </ul>
                 </div>
+                <% } %>
             </article>
             <% } %>
         </section>   

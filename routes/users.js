@@ -23,7 +23,6 @@ router.get('/registracion', userController.register);
 router.post('/registracion', upload.single('fotodeperfil'), userController.store);
 
 router.get('/login',userController.login);
-//router.post('/login',userController.loginPost)
 router.post('/login',userController.processLogin)
 
 router.get('/miPerfil',userController.profile)

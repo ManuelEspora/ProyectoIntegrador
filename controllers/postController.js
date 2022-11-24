@@ -1,14 +1,10 @@
 const db = require('../database/models');
-const post = db.Post;
+const post = db.Posts;
 const op = db.Sequelize.Op;
 
 const postController = {
     show: function(req, res){ 
-        let id = req.params.id
-        let auth = null 
-        if(req.session.auth){
-            auth = req.session.auth
-        } 
+        let id = req.params.id;
 
         let relaciones = {
             include : [
@@ -20,28 +16,14 @@ const postController = {
         };
         post.findByPk(id, relaciones)
         .then((result)=>{
-            res.render("index", {post: result})
+            res.render('index', {post: result})
         })
         .catch((err)=>{
-            return res.redirect("/")
+            return res.redirect('/')
         })
     },
     create: function(req, res){
         return res.render('agregarpost', { title:'Agregar Post' })
-    },
-
-    list: async function(req,res){
-        const search = req.query.search
-        let productos = []
-        if(search){
-            const consulta = {name: {[Op.like]: '%'+search+'%'}}
-            productos = await db.post.findAll({
-                where: consulta
-            })
-        } else{
-            productos = await db.post.findAll()
-        }
-        res.render('/', {post})
     },
 
     store: (req, res) => {

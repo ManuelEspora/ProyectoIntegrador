@@ -1,6 +1,5 @@
 const db = require('./../database/models/index')
-const post = db.Post;
-const comments = db.Comment;
+const post = db.Posts;
 const indexController = {
     index: function(req, res){
         let auth = null 
