@@ -25,7 +25,8 @@ router.post('/registracion', upload.single('fotodeperfil'), userController.store
 router.get('/login',userController.login);
 router.post('/login',userController.processLogin)
 
-router.get('/miPerfil',userController.profile)
+router.get('/detalleUsuario',userController.profile)
+router.get('/miPerfil',userController.miPerfil)
 
 router.post('/logout',userController.logout);
 module.exports = router;

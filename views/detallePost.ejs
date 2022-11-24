@@ -11,15 +11,16 @@
         <div class="post-detail container">
             <section class="center main-content post">
                 <div class="info-usuario">
-                    <img src="<%= post.img_url %> " alt="">
+                    <img src="<%= post.img_url %>  " alt="">
                     <p><a href="/users/detalleUsuario">Nombre de usuario</a></p>
                 </div>
-                <img class="photo" src="https://via.placeholder.com/500x600" alt="">
+                <img class="photo" src="<%= post.users[i].avatar %> " alt="">
             </section>
             <section class="right">
                 <h4>Comentarios</h4>
-                <section class="comments">
-                    <form action="" class="comment-form">
+                    <section class="comments">
+                        <% for( let i = 0; i < comments.length; i+=1 ) { %>
+                        <form action="" class="comment-form">
                         <input type="text" class="input" placeholder="Agregar comentario">
                         <button type="submit">Comentar</button>
                     </form>
@@ -28,47 +29,7 @@
                             <img src="https://via.placeholder.com/40" alt="">
                             <section class="content">
                                 <a class="user" href="/users/detalleUsuario">Nombre</a>
-                                <span class="text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel aspernatur temporibus maxime voluptas</span>
-                            </section>
-                        </article>
-                        <article class="comment">
-                            <img src="https://via.placeholder.com/40" alt="">
-                            <section class="content">
-                                <a class="user" href="/users/detalleUsuario">Nombre</a>
-                                <span class="text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel aspernatur temporibus maxime
-                                    voluptas</span>
-                            </section>
-                        </article>
-                        <article class="comment">
-                            <img src="https://via.placeholder.com/40" alt="">
-                            <section class="content">
-                                <a class="user" href="/users/detalleUsuario">Nombre</a>
-                                <span class="text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel aspernatur temporibus maxime
-                                    voluptas</span>
-                            </section>
-                        </article>
-                        <article class="comment">
-                            <img src="https://via.placeholder.com/40" alt="">
-                            <section class="content">
-                                <a class="user" href="/users/detalleUsuario">Nombre</a>
-                                <span class="text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel aspernatur temporibus maxime
-                                    voluptas</span>
-                            </section>
-                        </article>
-                        <article class="comment">
-                            <img src="https://via.placeholder.com/40" alt="">
-                            <section class="content">
-                                <a class="user" href="/users/detalleUsuario">Nombre</a>
-                                <span class="text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel aspernatur temporibus maxime
-                                    voluptas</span>
-                            </section>
-                        </article>
-                        <article class="comment">
-                            <img src="https://via.placeholder.com/40" alt="">
-                            <section class="content">
-                                <a class="user" href="/users/detalleUsuario">Nombre</a>
-                                <span class="text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel aspernatur temporibus maxime
-                                    voluptas</span>
+                                <span class="text"><%= comments[i].text %> </span>
                             </section>
                         </article>
                     </div>

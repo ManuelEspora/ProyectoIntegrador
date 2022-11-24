@@ -11,8 +11,29 @@ const userController = {
         })
         .catch(error => {res.send("Error al conectarse a la base de datos" + error)})
     },
+    
     register: function(req, res){
         res.render('registracion', {title:"Registracion"})  
+    },
+
+    store: function(req,res){
+        let usuarioAGuardar =req.body;
+
+        let user = {
+            email:usuarioAGuardar.email,
+            name: usuarioAGuardar.name,
+            fecha_de_nacimiento: usuarioAGuardar.fecha_de_nacimiento,
+            numero_de_documento: usuarioAGuardar.numero_de_documento,
+            password:bycript.hashSync(usuarioAGuardar.password,10)
+        }
+    
+        User.create(user)
+        .then((result) => {
+            return res.redirect('/users/login')
+        })
+        .catch((err)=> {
+            return console.log(err)
+        })
     },
     
    login: function(req, res) {
@@ -54,6 +75,28 @@ const userController = {
                 return res.redirect('/')
             } else {
                 return res.render('detalleusuario', { users: data })
+            }
+        })
+        .catch((err)=>{
+            console.log(err)
+        })
+    },
+    miPerfil: function(req, res){
+        res.render('miPerfil', {title:'miPerfil'})
+        const id = req.params.id
+
+        let relaciones = {
+            include : [
+                {all: true,
+                nested: true}
+            ]
+        }
+        User.findByPk(id, relaciones)
+        .then( (users) => {
+            if (users == null) {
+                return res.redirect('/')
+            } else {
+                return res.render('miPerfil', { users: data })
             }
         })
         .catch((err)=>{

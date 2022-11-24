@@ -3,7 +3,7 @@ const post = db.Posts;
 const op = db.Sequelize.Op;
 
 const postController = {
-    show: function(req, res){ 
+    show: (req, res) => { 
         let id = req.params.id;
 
         let relaciones = {
@@ -16,7 +16,8 @@ const postController = {
         };
         post.findByPk(id, relaciones)
         .then((result)=>{
-            res.render('index', {post: result})
+            console.log(result.users);
+            return res.render("detallePost", {post: result})
         })
         .catch((err)=>{
             return res.redirect('/')
