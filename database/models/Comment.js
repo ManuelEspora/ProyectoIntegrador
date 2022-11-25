@@ -14,12 +14,10 @@ module.exports = function (sequelize, dataTypes) {
             allowNull:true,
         },
         users_id: {
-            // autoIncrement: true,
             primaryKey: true,
             type: dataTypes.INTEGER
         },
         posts_id: {
-            // autoIncrement: true,
             primaryKey: true,
             type: dataTypes.INTEGER
         },
@@ -39,14 +37,14 @@ module.exports = function (sequelize, dataTypes) {
 
     let Comments = sequelize.define(alias, cols, config);
 
-     Comments.associate = (models)=>{
+    Comments.associate = (models)=>{
         Comments.belongsTo(models.Users,{
             as:'users',
             foreingKey:'users_id'
         });
-        Comments.belongsTo(models.Posts,{
+       Comments.belongsTo(models.Posts,{
             as:'posts',
-            foreingKey:'posts_id'
+            foreingKey:'users_id'
         })
     } 
 

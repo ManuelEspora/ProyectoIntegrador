@@ -1,18 +1,19 @@
 const db = require('./../database/models/index')
-const post = db.Posts;
+const posts = db.Posts;
 const indexController = {
     index: function(req, res){
-        let auth = null 
-        if(req.session.auth){
-            auth = req.session.auth
-        }
+        posts.findAll( {
+            include : [
+                {association: 'users'},
+                {association: 'comments'}
+            ],
 
-        post.findAll()
-            .then((result) => {
-                return res.render('index', {post : result});
-            })
-            .catch(error => {res.send("Error al conectarse a la base de datos" + error)})
-
+        })
+        .then((result) => {
+            return res.render('index', {posts : result,});
+        })
+        .catch(error => {res.send("Error al conectarse a la base de datos" + error)})
         },
-}
+
+    }
 module.exports = indexController;

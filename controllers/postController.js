@@ -14,10 +14,9 @@ const postController = {
                 //{association:'comments'}
             ]
         };
-        post.findByPk(id, relaciones)
+        post.findbyPk(id, relaciones)
         .then((result)=>{
-            console.log(result.users);
-            return res.render("detallePost", {post: result})
+            return res.render('detallePost', {posts: result})
         })
         .catch((err)=>{
             return res.redirect('/')

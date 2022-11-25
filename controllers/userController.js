@@ -19,12 +19,15 @@ const userController = {
     store: function(req,res){
         let usuarioAGuardar =req.body;
 
+        let foto = req.file;
+
         let user = {
             email:usuarioAGuardar.email,
+            password_:bycript.hashSync(usuarioAGuardar.pass,10),
             name: usuarioAGuardar.name,
-            fecha_de_nacimiento: usuarioAGuardar.fecha_de_nacimiento,
-            numero_de_documento: usuarioAGuardar.numero_de_documento,
-            password:bycript.hashSync(usuarioAGuardar.password,10)
+            birth_date: usuarioAGuardar.fecha_de_nacimiento,
+            dni: usuarioAGuardar.numero_de_documento,
+            avatar: "foto.png"
         }
     
         User.create(user)
@@ -42,12 +45,12 @@ const userController = {
     processLogin: function(req, res){
        let info = req.body;
        let filtro={
-           where:[{email:req.body.email}]
+           where:[{email:info.email}]
        }
        User.findOne(filtro)
        .then((result)=> {
            if(result!=null){
-               let passEncriptada= bycript.compareSync(info.password,result.password)
+               let passEncriptada= bycript.compareSync(info.pass,result.pass)
                if(passEncriptada){
                    return res.redirect('/')
                }else{
@@ -102,28 +105,7 @@ const userController = {
         .catch((err)=>{
             console.log(err)
         })
-    },
-    
-    store: function(req,res){
-        let usuarioAGuardar =req.body;
-
-        let user = {
-            email:usuarioAGuardar.email,
-            name: usuarioAGuardar.name,
-            fecha_de_nacimiento: usuarioAGuardar.fecha_de_nacimiento,
-            numero_de_documento: usuarioAGuardar.numero_de_documento,
-            password:bycript.hashSync(usuarioAGuardar.password,10)
-        }
-    
-        User.create(user)
-        .then((result) => {
-            return res.redirect('/users/login')
-        })
-        .catch((err)=> {
-            return console.log(err)
-        })
-    },
-    
+    },  
     logout:(req,res)=>{
 
         req.session.destroy();

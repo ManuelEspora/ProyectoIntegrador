@@ -12,12 +12,10 @@
         <section class="center main-content">
         <h1>Login</h1>
         <div class="formulario-login">
-            <form action="/users/login" method="POST" enctype="multipart/form-data">
-                <p><label for="mail">Email:</label></p>
-                <p><input type="email" id="email" name="email"> </p>
-
-                <p><label for="password">Contraseña:</label></p>
-                <p><input type="password" id="password" name="password_"></p>
+            <form action="/users/login" method="POST">
+                <p><input type="email" id="email" name="email" placeholder="email"> </p>
+            
+                <p><input type="password" id="password" name="password_" placeholder="Clave"></p>
                 
                 <p><input type="submit" value="Enviar"></p>
             </form>

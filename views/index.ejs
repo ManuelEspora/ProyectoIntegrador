@@ -9,8 +9,8 @@
 <body>
     <main>
         <section class="center main-content">
-                <% for( let i = 0; i < post.length; i+=1 ) { %>
-                <article class="post">
+            <% for( let i = 0; i < posts.length; i+=1 ) { %>    
+            <article class="post">
                     <div class="info-usuario ">
                     <img src="" alt="">
                     <h4>
@@ -18,8 +18,8 @@
                     </h4>
                 </div>
                 <div class="post-body">
-                    <a href="/post/detallePost">
-                        <img src="<%= post[i].img_url %>" alt="">
+                    <a href="/post/detallePost/<%= posts[i].id %> ">
+                        <img src="<%= posts[i].img_url %> " alt="">
                     </a>
                 </div>
                 <ul class="post-reacciones">
@@ -31,21 +31,18 @@
                     </li>
                 </ul>
                 <div class="post-descripcion">
-                    <h4><%= post[i].descripcion %> </h4>
+                    <h4><%= posts[i].descripcion %></h4>
                 </div>
                 <div class="post-comentarios">
-                    <h4>Comentarios: </h4>
+                    <h4>Comentarios: </h4>  
                     <ul>
                         <li>
-                            <a href="/users/miPerfil"> Usuario </a>
-                            <span> </span>
-                        </li>
-                        <li>
-                            <a href="/users/miPerfil">Usuario</a>
-                            <span>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Commodi</span>
+                            <a href="/users/detalleUsuario"> Usuario </a>
+                            <span>   </span>
                         </li>
                         <a href="/post/detallePost/">Ver más...</a>
                     </ul>
+                  
                 </div>
             </article>
             <% } %>

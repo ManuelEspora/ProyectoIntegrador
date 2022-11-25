@@ -1,9 +1,8 @@
 module.exports = function (sequelize, dataTypes) {
     let alias = "Posts";
     let cols = {
-
         id:  {
-            //autoIncrement: true,
+            autoIncrement: true,
             primaryKey: true,
             type: dataTypes.INTEGER
         },

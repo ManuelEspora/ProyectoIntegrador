@@ -1,11 +1,10 @@
 module.exports = function (sequelize, dataTypes) {
     let alias = "Users";
     let cols = {
-    
         id:  {
             autoIncrement: true,
             primaryKey: true,
-            type: dataTypes.INTEGER
+            type: dataTypes.INTEGER,
         },
         email: {
             type: dataTypes.STRING
@@ -44,18 +43,18 @@ module.exports = function (sequelize, dataTypes) {
 
    let Users = sequelize.define(alias, cols, config);
    
-   Users.associate = (models)=>{
-    Users.hasMany(models.Posts,{
+    Users.associate = (models)=>{
+        Users.hasMany(models.Posts,{
         as:'posts',
         foreingKey:'users_id'
     });
- 
+
     Users.hasMany(models.Comments,{
         as:'comments',
         foreingKey:'users_id'
-    });  
- } 
+    }); 
+}
     
    return Users;
   
-}
+    }
